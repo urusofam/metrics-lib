@@ -18,7 +18,14 @@ class MetricsRegistry {
 public:
     void registerMetric(const std::string &name, std::unique_ptr<IMetric> metric);
     template<typename T>
-    T* getMetric(const std::string &name);
+    T *MetricsRegistry::getMetric(const std::string &name) {
+        std::lock_guard lock(mutex);
+        const auto it = metrics.find(name);
+        if (it == metrics.end()) {
+            return nullptr;
+        }
+        return dynamic_cast<T*>(it->second.get());
+    }
     std::unordered_map<std::string, std::unique_ptr<IMetric>> snapshot();
 };
 

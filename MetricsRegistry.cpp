@@ -9,12 +9,6 @@ void MetricsRegistry::registerMetric(const std::string &name, std::unique_ptr<IM
     metrics[name] = std::move(metric);
 }
 
-template<typename T>
-T *MetricsRegistry::getMetric(const std::string &name) {
-    std::lock_guard lock(mutex);
-    return dynamic_cast<T *>(metrics[name].get());
-}
-
 std::unordered_map<std::string, std::unique_ptr<IMetric> > MetricsRegistry::snapshot() {
     std::lock_guard lock(mutex);
     std::unordered_map<std::string, std::unique_ptr<IMetric> > newMetrics;
