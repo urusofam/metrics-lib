@@ -23,6 +23,6 @@ std::unordered_map<std::string, std::unique_ptr<IMetric> > MetricsRegistry::snap
         newMetrics[name] = metric->clone();
         metric->reset();
     }
-    return metrics;
+    return newMetrics;
 }
 
