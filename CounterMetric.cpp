@@ -6,11 +6,11 @@
 
 CounterMetric::CounterMetric(const std::string &name) : name(name), value(0) {}
 
-void CounterMetric::write(std::ostream &os) const override {
+void CounterMetric::write(std::ostream &os) const  {
     os << name << " " << value.load();
 }
 
-std::unique_ptr<IMetric> CounterMetric::clone() const override {
+std::unique_ptr<IMetric> CounterMetric::clone() const  {
     auto cloned = std::make_unique<CounterMetric>(name);
     cloned->value = this->value.load();
     return cloned;
@@ -21,7 +21,7 @@ void CounterMetric::increment(const long long val) {
     value.fetch_add(val);
 }
 
-void CounterMetric::reset() override {
+void CounterMetric::reset()  {
     value.store(0);
 }
 
