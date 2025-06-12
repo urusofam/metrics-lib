@@ -2,7 +2,7 @@
 // Created by urus on 12.06.25.
 //
 
-#include "AverageMetric.h"
+#include "../include/AverageMetric.h"
 
 AverageMetric::AverageMetric(const std::string &name) : name(name), sum(0), count(0) {}
 

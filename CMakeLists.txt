@@ -4,11 +4,11 @@ project(metrics-lib)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(main
-        main.cpp
-        AverageMetric.cpp
-        CounterMetric.cpp
-        MetricsRegistry.cpp
-        MetricsWriter.cpp
+        app/main.cpp
+        src/AverageMetric.cpp
+        src/CounterMetric.cpp
+        src/MetricsRegistry.cpp
+        src/MetricsWriter.cpp
 )
 
 find_package(Threads REQUIRED)

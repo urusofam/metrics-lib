@@ -2,7 +2,7 @@
 // Created by urus on 12.06.25.
 //
 
-#include "MetricsWriter.h"
+#include "../include/MetricsWriter.h"
 
 MetricsWriter::MetricsWriter(MetricsRegistry &registry, std::chrono::seconds interval, const std::string &filepath) : registry(registry), interval(interval), running(true) {
     file.open(filepath,std::ios::app);

@@ -2,7 +2,7 @@
 // Created by urus on 12.06.25.
 //
 
-#include "CounterMetric.h"
+#include "../include/CounterMetric.h"
 
 CounterMetric::CounterMetric(const std::string &name) : name(name), value(0) {}
 

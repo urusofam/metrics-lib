@@ -1,7 +1,7 @@
-#include "MetricsRegistry.h"
-#include "MetricsWriter.h"
-#include "CounterMetric.h"
-#include "AverageMetric.h"
+#include "../include/MetricsRegistry.h"
+#include "../include/MetricsWriter.h"
+#include "../include/CounterMetric.h"
+#include "../include/AverageMetric.h"
 #include <iostream>
 #include <vector>
 #include <thread>
@@ -23,7 +23,7 @@ void workerFunc(MetricsRegistry& registry, const int workerID) {
     std::uniform_real_distribution<> cpuRand(0.0, 2.0);
     std::uniform_int_distribution<> rpuRand(1, 10);
 
-    for (int i = 0; i < 100; ++i) {
+    for (int i = 0; i < 20; ++i) {
         std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
         cpu->add(cpuRand(gen));

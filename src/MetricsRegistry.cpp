@@ -2,7 +2,7 @@
 // Created by urus on 12.06.25.
 //
 
-#include "MetricsRegistry.h"
+#include "../include/MetricsRegistry.h"
 
 void MetricsRegistry::registerMetric(const std::string &name, std::unique_ptr<IMetric> metric) {
     std::lock_guard lock(mutex);
