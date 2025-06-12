@@ -42,7 +42,7 @@ int main() {
 
         MetricsWriter writer(registry, std::chrono::seconds(1), "metrics.txt");
 
-        std::cout << "Симуляция работы двух потоков на 5 секунд" << std::endl;
+        std::cout << "Симуляция работы двух потоков" << std::endl;
 
         std::vector<std::thread> threads;
         threads.emplace_back(workerFunc, std::ref(registry), 1);
