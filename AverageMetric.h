@@ -12,7 +12,7 @@
 
 class AverageMetric : public IMetric {
     std::string name;
-    std::atomic<long double> sum;
+    std::atomic<double> sum;
     std::atomic<long long> count;
 public:
     AverageMetric(const std::string &name);
