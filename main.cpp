@@ -23,7 +23,7 @@ void workerFunc(MetricsRegistry& registry, const int workerID) {
     std::uniform_real_distribution<> cpuRand(0.0, 2.0);
     std::uniform_int_distribution<> rpuRand(1, 10);
 
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 100; ++i) {
         std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
         cpu->add(cpuRand(gen));
@@ -51,8 +51,6 @@ int main() {
         for (auto& t : threads) {
             t.join();
         }
-
-        std::this_thread::sleep_for(std::chrono::seconds(1));
 
         std::cout << "Симуляция окончена, можно посмотреть логи в metrics.txt" << std::endl;
     } catch (const std::exception& e) {
