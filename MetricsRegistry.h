@@ -18,7 +18,7 @@ class MetricsRegistry {
 public:
     void registerMetric(const std::string &name, std::unique_ptr<IMetric> metric);
     template<typename T>
-    T *MetricsRegistry::getMetric(const std::string &name) {
+    T *getMetric(const std::string &name) {
         std::lock_guard lock(mutex);
         const auto it = metrics.find(name);
         if (it == metrics.end()) {
