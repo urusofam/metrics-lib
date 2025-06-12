@@ -6,17 +6,17 @@
 
 AverageMetric::AverageMetric(const std::string &name) : name(name), sum(0), count(0) {}
 
-void AverageMetric::write(std::ostream &os) const override {
+void AverageMetric::write(std::ostream &os) const  {
     long double avg = (count == 0) ? 0 : sum.load() / count.load();
     os << name << " " << avg;
 }
 
-void AverageMetric::reset() override {
+void AverageMetric::reset()  {
     sum.store(0);
     count.store(0);
 }
 
-std::unique_ptr<IMetric> AverageMetric::clone() const override {
+std::unique_ptr<IMetric> AverageMetric::clone() const  {
     auto cloned = std::make_unique<AverageMetric>(name);
     cloned->sum = this->sum.load();
     cloned->count = this->count.load();
